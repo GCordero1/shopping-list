@@ -25,11 +25,11 @@ $('#js-shopping-list-form').submit(function(event) {
 	addItem(state, $('#shopping-list-entry').val());
 	renderList(state, $('.shopping-list'));
 });
-$('.shopping-item-delete').click(function(event) {
+$('.shopping-item-delete').on('click', function(event) {
 	event.preventDefault();
 	deleteItem();
 });
-$('.shopping-item-toggle').click(function(event) {
+$('.shopping-item-toggle').on('click', function(event) {
 	event.preventDefault();
 	$(this).toggleClass('.shopping-item__checked');
 });
