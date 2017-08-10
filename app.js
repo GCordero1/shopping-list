@@ -14,7 +14,12 @@ var deleteItems = function(state, item) {
 // function that renders state
 var renderList = function(state, element) {
 	var itemsHTML = state.items.map(function(item) {
-		return '<li>' + item  + '</li>';
+		return '<li><span class="shopping-item">' + item  +
+		'</span><div class="shopping-item-controls">' + 
+          '<button class="shopping-item-toggle">' +
+            '<span class="button-label">check</span> </button>' +
+          ' <button class="shopping-item-delete"><span class="button-label">delete</span>' +
+          '</button> </div>';
 	});
 	element.html(itemsHTML);
 };
