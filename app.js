@@ -8,7 +8,7 @@ var addItem = function(state, item) {
 	state.items.push(item);
 }
 var deleteItems = function(state, item) {
-	state.items.splice(item, 1);
+	state.items.splice(item, );
 }
 
 // function that renders state
@@ -34,14 +34,14 @@ $('#js-shopping-list-form').submit(function(event) {
 });
 
 // remove items from list event listener
-$('.shopping-item-delete').on('click', function(event) {
-	event.preventDefault();
-	deleteItems(state, $('#shopping-list-entry'));
-	renderList(state, $('.shopping-list'));
-});
+$('ul').on('click', '.shopping-item-delete', function(event){
+    var $parent = $(this).closest("li");
+    $parent.remove();
+})
 
 // check items from list event listener
-$('.shopping-item-toggle').on('click', function(event) {
-	event.preventDefault();
-	$(this).toggleClass('.shopping-item__checked');
-});
+$('ul').on('click', '.shopping-item-toggle', function(event){
+        var $parentDiv = $(this).closest("div");
+        var $parentSpan = $($parentDiv).prev();
+        $parentSpan.toggleClass("shopping-item__checked")
+})
